@@ -2,14 +2,14 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:android   = "http://schemas.android.com/apk/res/android"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.bsdmasterindex.cordova-storage-file"
+        id          = "com.bsdmasterindex.Generic-Boilerplate8"
         version     = "1.0.0"
         versionCode = "100" > <!-- versionCode is optional and Android only -->
         <!-- Tool Set Version -->        
         <preference name='phonegap-version' value='cli-5.2.0' />
 
-        <name>cordova storage file</name>
-        <description>cordova storage file</description>
+        <name>Generic-Boilerplate8</name>
+        <description>Generic-Boilerplate8</description>
         <author href="http://bsdmasterindex.com" email="jessemonroy650@yahoo.com">
         Jesse Monroy
         </author>
