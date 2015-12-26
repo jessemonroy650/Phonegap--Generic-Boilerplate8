@@ -1,0 +1,10 @@
+    body {margin:0px;font-size:large;}
+    .hidden {visibility:collapse;display:none;}
+    .expose {visibility:visible;display:block;} /* Here for completeness only. */
+    .copyright {padding:5px;align:left;font-style:italic;font-size:small;}
+    .marginSpacer {margin:0.5em;}
+    #header {margin:0;padding:0;}
+    #exitApp {margin:0;float:right;}
+    .red   {color:red;}
+    .green {color:green;}
+    .blue  {color:blue;}
