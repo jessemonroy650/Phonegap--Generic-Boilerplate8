@@ -8,8 +8,8 @@
         <!-- Tool Set Version -->        
         <!-- <preference name='phonegap-version' value='cli-5.2.0' /> -->
         <!-- Testing the system -->
-        <preference name='phonegap-version' value='cli-5.4.1' />
-        <!-- <preference name='phonegap-version' value='cli-6.0.0' /> -->
+        <!-- <preference name='phonegap-version' value='cli-5.4.1' /> -->
+        <preference name='phonegap-version' value='cli-6.0.0' />
 
         <name>Generic-Boilerplate8</name>
         <description>Generic-Boilerplate8</description>
@@ -19,43 +19,8 @@
 
         <!-- Target Platforms -->
         <!-- Remove to test which platforms build by default. -->
-<!--        <platform name="android" />
+        <platform name="android" />
         <platform name="ios" />
         <platform name="winphone" />
--->
-
-        <!-- Android SECTION -->
-        <config-file platform="android" parent="/manifest" mode="merge" >
-            <!-- Add Android extensions here. -->
-            <!-- SEE: http://docs.build.phonegap.com/en_US/configuring_config_file_element.md.html#Config%20File%20Elements -->
-        </config-file>
-
-        <!-- iOS SECTION -->
-        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
-            <!-- Add iOS extensions here. SEE: http://docs.build.phonegap.com/en_US/configuring_config_file_element.md.html#Config%20File%20Elements -->
-            <key>NSAppTransportSecurity</key>
-                <dict>
-                  <key>NSAllowsArbitraryLoads</key>
-                  <true/>
-                </dict>
-        </config-file>
-
-        <!-- App requested permission -->
-        <preference name="permissions" value="none"/>
-
-
-        <!-- PLUGINS * PLUGINS * PLUGINS -->
-        <!-- spec="" follows the syntax of https://docs.npmjs.com/cli/install -->
-        <plugin name="cordova-plugin-device"         source="npm" spec="1.0.1" />
-        <plugin name="cordova-plugin-whitelist"      source="npm" spec="1.0.0" /> <!-- NEW -->
-
-        <!-- 3rd PARTY PLUGINS *3rd PARTY PLUGINS -->
-        <!-- popular alternative to the google chrome webview -->
-
-        <!-- WHITELIST * WHITELIST * WHITELIST -->
-        <!-- https://github.com/jessemonroy650/top-phonegap-mistakes/blob/master/the-whitelist-system.md -->
-        <allow-navigation href="*" />
-        <allow-intent href="*" />
-        <access origin="*" /> <!-- Required for iOS9 -->
 
     </widget>
