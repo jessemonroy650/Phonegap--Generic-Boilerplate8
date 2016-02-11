@@ -19,10 +19,9 @@
 
         <!-- Target Platforms -->
         <!-- Remove to test which platforms build by default. -->
-<!--        <platform name="android" />
+        <platform name="android" />
         <platform name="ios" />
         <platform name="winphone" />
--->
 
         <!-- Android SECTION -->
         <config-file platform="android" parent="/manifest" mode="merge" >
