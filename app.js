@@ -1,10 +1,10 @@
 /*
     Date: 2015-12-25
+    2016-02-22 - Detect if we are using Cordova/Phonegap or a browser.
 */
-
 var app = {
     self : {},
-
+    //
     onDeviceReady : function () {
         //alert("device ready.");
         if (device.platform === "iOS") {
@@ -19,48 +19,36 @@ var app = {
             navigator.splashscreen.hide();
         } else if (device.platform == 'Android') {
             // Get rid of 300ms delay 
-            document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false);
-            //
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body); 
+            },false);
+            // Exit App
             document.getElementById('exitApp').addEventListener('click', function() {
-                app.exit();
+                navigator.app.exitApp();
             });
         } else if (device.platform == 'browser') {
-            document.getElementById('exitApp').addEventListener('click', function() {
-                app.exit();
-            });
-        }
-        plugin.test();
-    },
-    exit : function () {
-        console.log('Called app.exit()');
-        if ('app' in navigator) {
-            navigator.app.exitApp();
-        } else {
-            alert('exit button hit.');
+            // hide Exit button. Browser does not exit.
+            document.getElementById('exitApp').classList.add("hidden");
         }
     }
 };
 
 //
-// Wait for PhoneGap to load
-document.addEventListener("deviceready", app.onDeviceReady, false);
+//    Entry Point
+//
+document.addEventListener('DOMContentLoaded', function() {
+    // Detect if we are using Cordova/Phonegap or a browser.
+    // https://videlais.com/2014/08/21/lessons-learned-from-detecting-apache-cordova/
+    var isCordovaApp = (typeof window.cordova !== "undefined");
 
-var plugin = {
-    self : {},
-    db   : {},
-
-    // Is API available?
-    test : function () {
-        console.log("app.test");
-        $('#isavailable').html(plugin.available('indexedDB'));
-    },
-    test2 : function (data) {
-        $('#resultPlugin').html(data);
-    },
-    test3 : function () {
-    },
-    // See alternate method: http://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673 under "Let's Get Started"
-    available: function (type) {
-        return (type in window) ?  true : false;
+    // Is it a device we know?
+    if ( isCordovaApp === true ) {
+        // Wait for PhoneGap to load
+        document.addEventListener("deviceready", app.onDeviceReady, false);
+    } else {
+        // This needs to be global so other modules can see it.
+        device = {platform:'browser'};
+        // Force the function.
+        app.onDeviceReady();
     }
-};
+});
